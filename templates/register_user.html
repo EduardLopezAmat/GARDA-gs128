@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Usuario</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1 class="main-title">Registrar Usuario</h1>
+    {% if error %}<p style="color:red">{{ error }}</p>{% endif %}
+    {% if success %}<p style="color:green">{{ success }}</p>{% endif %}
+    <form method="POST">
+        <label>Usuario:</label>
+        <input type="text" name="username" required>
+        <label>Contraseña:</label>
+        <input type="password" name="password" required>
+        <label>Admin:</label>
+        <input type="checkbox" name="is_admin">
+        <button type="submit" class="card-button">Crear Usuario</button>
+    </form>
+    <div style="margin-top:20px;">
+        <a href="{{ url_for('index') }}" class="back-home">Volver</a>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,153 @@
+/* Fondo y tipografía global */
+body {
+    background: linear-gradient(135deg, #0B1D3A, #142D55);
+    color: #FFFFFF;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px 20px;
+    text-align: center;
+    background-color: #142D55;
+    border-radius: 15px;
+}
+
+/* Título principal */
+.main-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Aviso destacado debajo del título */
+.notice {
+    background-color: #1E3B70;
+    border-radius: 12px;
+    padding: 15px;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+/* Botones tipo tarjeta - contenedor */
+.card-buttons {
+    display: flex;
+    flex-direction: column; /* Botones uno debajo del otro */
+    gap: 20px;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+/* Formulario de botones */
+.card-form {
+    width: 100%;
+}
+
+/* Botón rectangular con fondo amarillo */
+.card-button {
+    background-color: #FFD700; /* Amarillo brillante */
+    color: #000000;            /* Texto negro */
+    border: 2px solid #000000; /* Borde negro */
+    border-radius: 12px;
+    padding: 20px 40px;        /* Rectángulo horizontal */
+    width: 80%;
+    display: flex;
+    flex-direction: row;       /* Icono + texto en línea */
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+/* Hover ligero */
+.card-button:hover {
+    transform: scale(1.05);
+    background-color: #FFEB7F; /* Amarillo más claro */
+}
+
+/* Icono en botón */
+.card-button .icon {
+    font-size: 40px;
+    margin-right: 15px; /* Separación icono - texto */
+}
+
+/* Texto en botón */
+.card-button .text {
+    font-weight: bold;
+}
+
+/* Aviso global / recomendación */
+.recomendacion {
+    font-size: 14px;
+    color: #FFD700; /* Amarillo brillante */
+    margin-top: 20px;
+}
+
+/* Selector de idioma y "Volver al inicio" unificados */
+.lang-selector a,
+.back-home {
+    color: #FFFFFF !important;       /* Blanco garantizado */
+    text-decoration: none !important; /* Sin subrayado */
+    margin: 0 5px;
+    font-weight: bold;
+    transition: color 0.2s;
+    cursor: pointer;
+}
+
+.lang-selector a:hover,
+.back-home:hover {
+    color: #FFD700 !important;       /* Amarillo brillante al pasar mouse */
+}
+
+/* Inputs */
+input {
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0 15px 0;
+    border-radius: 5px;
+    border: none;
+}
+
+/* Tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+}
+
+th, td {
+    border: 1px solid #FFFFFF;
+    padding: 5px;
+    text-align: center;
+}
+
+/* Texto descriptivo debajo del título */
+.description {
+    font-size: 16px;
+    margin-bottom: 20px;
+
+}
+
+/* Botones de acción (Descargar PDF/ZPL, Nivel 3) */
+.action-button {
+    color: #FFFFFF;           /* Blanco */
+    background: none;         /* Sin fondo */
+    border: 2px solid #FFD700; /* Borde amarillo */
+    border-radius: 12px;
+    padding: 10px 20px;
+    margin: 5px;
+    font-weight: bold;
+    text-decoration: none;    /* Quita subrayado */
+    cursor: pointer;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.action-button:hover {
+    color: #FFD700;           /* Texto amarillo al pasar mouse */
+    background-color: rgba(255, 215, 0, 0.1); /* Fondo suave amarillo al hover */
+}
+

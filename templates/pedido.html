@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ translations['pedido_garda'][lang] }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <!-- Título dinámico -->
+    <h1 class="main-title">{{ translations['pedido_garda'][lang] }}</h1>
+
+    {% if error %}
+        <p style="color:red">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST">
+        <label>{{ translations['pedido_garda'][lang] }} (xxxxCPxxxx)</label>
+        <div style="display:flex; gap:5px;">
+            <input type="text" name="pedido_inicio" maxlength="4" size="4" required pattern="\d{4}" title="4 números iniciales">
+            <input type="text" value="CP" readonly style="width:25px; text-align:center; font-weight:bold;">
+            <input type="text" name="pedido_fin" maxlength="4" size="4" required pattern="\d{4}" title="4 números finales">
+        </div>
+        <button type="submit" class="card-button">{{ translations['siguiente'][lang] }}</button>
+    </form>
+
+    <!-- Volver a login -->
+    <div style="margin-top:20px;">
+        <a href="{{ url_for('logout') }}" class="back-home">{{ translations['volver_inicio'][lang] }}</a>
+    </div>
+
+    <!-- Selector de idioma funcional -->
+    <div class="lang-selector" style="margin-top:20px;">
+        <a href="{{ url_for('set_lang', lang='ES') }}">ES</a> |
+        <a href="{{ url_for('set_lang', lang='EN') }}">EN</a> |
+        <a href="{{ url_for('set_lang', lang='IT') }}">IT</a>
+    </div>
+</div>
+</body>
+</html>

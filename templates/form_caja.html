@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario Caja</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1 class="main-title">{{ translations['caja'][lang] }}</h1>
+    {% if error %}<p style="color:red">{{ error }}</p>{% endif %}
+    <form method="POST">
+        <!-- Pedido GARDA predefinido y bloqueado -->
+        <label>{{ translations['pedido_garda'][lang] }}</label>
+        <input type="text" name="pedido" value="{{ pedido_garda }}" readonly>
+
+        <label>{{ translations['gtin'][lang] }}</label>
+        <input type="text" name="gtin" required>
+
+        <label>{{ translations['lote'][lang] }}</label>
+        <input type="text" name="lote" required>
+
+        <label>{{ translations['fecha'][lang] }}</label>
+        <input type="text" name="fecha" required>
+
+        <label>{{ translations['cantidad'][lang] }}</label>
+        <input type="number" name="cantidad" required>
+
+        <label>{{ translations['peso'][lang] }}</label>
+        <input type="text" name="peso">
+
+        <label>{{ translations['descripcion'][lang] }}</label>
+        <input type="text" name="descripcion">
+
+        <button type="submit" class="card-button">
+            <div class="text">{{ translations['siguiente'][lang] }}</div>
+        </button>
+    </form>
+
+    <div style="margin-top:20px;">
+        <a href="{{ url_for('index') }}" class="back-home">{{ translations['volver_inicio'][lang] }}</a>
+    </div>
+
+    <div class="lang-selector">
+        <a href="{{ url_for('set_lang', lang='ES') }}">ES</a> |
+        <a href="{{ url_for('set_lang', lang='EN') }}">EN</a> |
+        <a href="{{ url_for('set_lang', lang='IT') }}">IT</a>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+    <meta charset="UTF-8">
+    <title>Historial Etiquetas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1 class="main-title">Historial de Etiquetas</h1>
+
+    <form method="GET" style="margin-bottom:20px;">
+        <input type="text" name="filtro" placeholder="Filtrar por Nº PEDIDO GARDA" value="{{ request.args.get('filtro', '') }}">
+        <button type="submit" class="card-button">Filtrar</button>
+    </form>
+
+    <table>
+        <tr>
+            <th>Tipo</th>
+            <th>Nº PEDIDO GARDA</th>
+            <th>Contenido</th>
+            <th>Fecha</th>
+        </tr>
+        {% for etiqueta in etiquetas %}
+        <tr>
+            <td>{{ etiqueta['tipo'] }}</td>
+            <td>{{ etiqueta['pedido_garda'] }}</td>
+            <td>{{ etiqueta['contenido'] }}</td>
+            <td>{{ etiqueta['fecha'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div style="margin-top:20px;">
+        <a href="{{ url_for('index') }}" class="back-home">Volver</a>
+    </div>
+</div>
+</body>
+</html>

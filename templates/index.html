@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ translations['index_title'][lang] }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .button-row {
+            display: flex;
+            justify-content: center; /* centra los botones por defecto */
+            gap: 20px; /* espacio entre botones */
+            margin-top: 20px;
+        }
+        .button-row .right-button {
+            margin-left: auto; /* mueve a la derecha */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="main-title">{{ translations['index_title'][lang] }}</h1>
+
+        <div class="notice">
+            {{ translations['index_description'][lang] }}
+        </div>
+
+        <div class="card-buttons">
+            <form method="POST" class="card-form">
+                <button type="submit" name="tipo_unidad" value="caja" class="card-button">
+                    <div class="icon">📦</div>
+                    <div class="text">{{ translations['caja'][lang] }}</div>
+                </button>
+
+                <button type="submit" name="tipo_unidad" value="pallet" class="card-button">
+                    <div class="icon">🟫</div>
+                    <div class="text">{{ translations['pallet'][lang] }}</div>
+                </button>
+            </form>
+        </div>
+
+        <!-- Fila de botones: Historial centrado, Registrar Usuario a la derecha -->
+        <div class="button-row">
+            {% if session.get('user_id') %}
+            <a href="{{ url_for('historial') }}" class="action-button">Historial de Etiquetas</a>
+            {% endif %}
+
+            {% if session.get('is_admin') %}
+            <a href="{{ url_for('register_user') }}" class="action-button right-button">Registrar Usuario</a>
+            {% endif %}
+        </div>
+
+        <p class="recomendacion">{{ translations['recomendacion'][lang] }}</p>
+
+        <!-- Botón Volver al inicio estilo formulario -->
+        {% if session.get('user_id') %}
+        <div style="text-align:center; margin-bottom:10px;">
+            <a href="{{ url_for('pedido') }}" class="back-home">Volver al inicio</a>
+        </div>
+        {% endif %}
+
+        <div class="lang-selector">
+            <a href="{{ url_for('set_lang', lang='ES') }}">ES</a> |
+            <a href="{{ url_for('set_lang', lang='EN') }}">EN</a> |
+            <a href="{{ url_for('set_lang', lang='IT') }}">IT</a>
+        </div>
+    </div>
+</body>
+</html>
