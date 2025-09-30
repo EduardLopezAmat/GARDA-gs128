@@ -1,0 +1,115 @@
+/* ===========================
+   CSS Responsive para móviles
+   =========================== */
+
+@media only screen and (max-width: 768px) {
+
+    /* Ajuste altura completa y centrado */
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;   /* centra verticalmente */
+        align-items: center;       /* centra horizontalmente */
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .container {
+        width: 95%;
+        max-width: 500px;
+        min-height: 90%;           /* fuerza altura casi completa */
+        padding: 20px;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    h1.main-title {
+        font-size: 1.6em;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    /* Formularios */
+    form label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: bold;
+    }
+
+    form input, 
+    form select,
+    form textarea,
+    form button {
+        width: 100%;
+        margin-bottom: 12px;
+        padding: 10px;
+        font-size: 1em;
+        box-sizing: border-box;
+    }
+
+    .card-button {
+        padding: 12px;
+        font-size: 1.1em;
+        text-align: center;
+    }
+
+    /* Tablas con scroll horizontal */
+    table {
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+        border-collapse: collapse;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table th, table td {
+        font-size: 0.9em;
+        padding: 6px;
+        text-align: left;
+        word-break: break-word;
+    }
+
+    /* Selector de idioma */
+    .lang-selector {
+        text-align: center;
+        font-size: 0.95em;
+        margin-top: 15px;
+    }
+
+    /* Botones en filas (Index, Historial, etc.) */
+    .button-row {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .button-row .right-button {
+        margin-left: 0;
+    }
+
+    /* Avisos, recomendaciones */
+    .notice {
+        font-size: 0.95em;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    /* Botones de acción y "Volver" */
+    .action-button, 
+    .back-home {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+        margin-bottom: 10px;
+        font-size: 1em;
+        box-sizing: border-box;
+    }
+}

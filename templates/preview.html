@@ -3,42 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ translations['tipo_unidad'][lang] }} - {{ translations['siguiente'][lang] }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
 </head>
 <body>
-    <div class="container">
-        <h1 class="main-title">{{ translations['tipo_unidad'][lang] }} {{ tipo | capitalize }}</h1>
+<div class="container">
+    <h1 class="main-title">{{ translations['tipo_unidad'][lang] }} {{ tipo | capitalize }}</h1>
 
-        <table>
-            <tr>
-                {% for key in form_data[0].keys() %}
-                <th>{{ translations.get(key.lower(), {}).get(lang, key) }}</th>
-                {% endfor %}
-            </tr>
-            {% for item in form_data %}
-            <tr>
-                {% for val in item.values() %}
-                <td>{{ val }}</td>
-                {% endfor %}
-            </tr>
+    <table>
+        <tr>
+            {% for key in form_data[0].keys() %}
+                {% if key.lower() != "nº pedido garda" %}
+                    {% set mapped_key = KEY_MAP.get(key, key.lower()) %}
+                    <th>{{ translations.get(mapped_key, {}).get(lang, key) }}</th>
+                {% endif %}
             {% endfor %}
-        </table>
+        </tr>
+        {% for item in form_data %}
+        <tr>
+            {% for key, val in item.items() %}
+                {% if key.lower() != "nº pedido garda" %}
+                    <td>{{ val }}</td>
+                {% endif %}
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
 
-        <div style="margin-top:20px;">
-            <a href="{{ url_for('download', file_type='pdf') }}" class="action-button">{{ translations['descargar_pdf'][lang] }}</a>
-            <a href="{{ url_for('download', file_type='zpl') }}" class="action-button">{{ translations['descargar_zpl'][lang] }}</a>
-        </div>
-
-        <div style="margin-top:20px;">
-            <a href="{{ url_for('index') }}" class="back-home">{{ translations['volver_inicio'][lang] }}</a>
-        </div>
-
-        <div class="lang-selector">
-            <a href="{{ url_for('set_lang', lang='ES') }}">ES</a> |
-            <a href="{{ url_for('set_lang', lang='EN') }}">EN</a> |
-            <a href="{{ url_for('set_lang', lang='IT') }}">IT</a>
-        </div>
+    <div style="margin-top:20px;">
+        <a href="{{ url_for('download', file_type='pdf') }}" class="action-button">{{ translations['descargar_pdf'][lang] }}</a>
+        <a href="{{ url_for('download', file_type='zpl') }}" class="action-button">{{ translations['descargar_zpl'][lang] }}</a>
     </div>
+
+    <div style="margin-top:20px;">
+        <a href="{{ url_for('index') }}" class="back-home">{{ translations['volver_inicio'][lang] }}</a>
+    </div>
+
+    <div class="lang-selector">
+        <a href="{{ url_for('set_lang', lang='ES') }}">ES</a> |
+        <a href="{{ url_for('set_lang', lang='EN') }}">EN</a> |
+        <a href="{{ url_for('set_lang', lang='IT') }}">IT</a>
+    </div>
+</div>
 </body>
 </html>
-

@@ -9,7 +9,8 @@ body {
 
 /* Contenedor principal */
 .container {
-    max-width: 600px;
+    width: 100%;          /* ocupa todo el ancho disponible en móvil */
+    max-width: 600px;     /* límite en escritorio */
     margin: 50px auto;
     padding: 30px 20px;
     text-align: center;
@@ -129,19 +130,18 @@ th, td {
 .description {
     font-size: 16px;
     margin-bottom: 20px;
-
 }
 
 /* Botones de acción (Descargar PDF/ZPL, Nivel 3) */
 .action-button {
-    color: #FFFFFF;           /* Blanco */
-    background: none;         /* Sin fondo */
+    color: #FFFFFF;            /* Blanco */
+    background: none;          /* Sin fondo */
     border: 2px solid #FFD700; /* Borde amarillo */
     border-radius: 12px;
     padding: 10px 20px;
     margin: 5px;
     font-weight: bold;
-    text-decoration: none;    /* Quita subrayado */
+    text-decoration: none;     /* Quita subrayado */
     cursor: pointer;
     transition: color 0.2s, background-color 0.2s;
 }
@@ -150,4 +150,3 @@ th, td {
     color: #FFD700;           /* Texto amarillo al pasar mouse */
     background-color: rgba(255, 215, 0, 0.1); /* Fondo suave amarillo al hover */
 }
-
